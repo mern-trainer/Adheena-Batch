@@ -40,7 +40,7 @@ const c = ++d // pre increment
     
     // console.log(ab)
     
-    const text = "Hello World World"; // position -> index
+    const text = "Hello World"; // position -> index
     
     // length -> returns the length of the string
 
@@ -55,6 +55,8 @@ console.log(text.replace("Hello", "Hey"))
 console.log(text.includes("World"))
 
 console.log(text.slice(0, -2)) // hide mobile number
+
+console.log(text.split(" "))
 
 const mobile = 1234567890
 
@@ -93,5 +95,57 @@ array.splice(1, 0, -2, -3, -4)
 
 console.log(array)
 
-// 
+console.log(array.join(" "))
+
+// array.reverse()
+// console.log(array)
+
+// hide email -> samplemail@gmail.com
+// samp***@gmail.com
+
+const email = "sample-email@gmail.com"
+
+const arr = email.split("@")
+
+const slicedName = arr[0].slice(0, 4)
+const domain = arr[1]
+
+const hiddenEmail = slicedName + "****" + "@" + domain
+
+console.log(hiddenEmail);
+
+// Object -> collection of key value pairs
+
+const user = {
+    name: "John Doe",
+    age: 20,
+    email: "email@gmail.com",
+    address: {
+        city: "Delhi",
+        state: "Delhi",
+        country: "India",
+        pincode: 110001
+    },
+    education: {
+        degree: "B.Tech",
+        college: "XYZ",
+        year: 2020
+    },
+    skills: ["HTML", "CSS", "JS"],
+    isMarried: true
+}
+
+const key = "email"
+user.address.city = "sldjflsd"
+user[key] = 21
+// user.sample_field = {
+//     hey: "asdfsdf"
+// }
+
+console.log(user)
+
+
+// oops -> Object Oriented Programming system
+
+// class -> blueprint or template of an object
 
