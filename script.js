@@ -144,8 +144,92 @@ user[key] = 21
 
 console.log(user)
 
+// sync vs async
+// sync -> blocking code -> line by line execution
+// async -> non-blocking code -> parallel execution
 
-// oops -> Object Oriented Programming system
+// callback, map, filter, reduce
 
-// class -> blueprint or template of an object
+// callback function -> function passed as an argument to another function.
 
+// function sum(a, b) {
+//     return a + b
+// }
+
+// console.log(sum(10, 20))
+
+// arrow function -> shorthand of funcitons
+
+// const arrowFunc = () => console.log("arrow function")
+
+// arrowFunc()
+
+const sum = (a, b) => a + b;
+
+console.log(sum(20, 50));
+
+// callback function
+
+const displayResult = (value) => {
+    console.log("Result is " + value)
+}
+
+const sumOfTwoNumbers = (first, second, callback) => {
+    const res = first + second
+    callback(res)
+}
+
+sumOfTwoNumbers(100, 200, displayResult)
+
+// -----------------------------------------------------------------------------
+
+// array methods
+
+// map, filter,
+
+
+
+const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+const loop = (callback) => {
+    for (let i = 0; i < 10; i++){
+        callback(i, i*2, i*10)
+    }
+}
+
+loop((value, value2, value3) => {
+    // console.log(value, value2, value3)
+})
+
+// map -> array manipulation -> returns a new array
+
+const newNums = nums.map((element) => {
+    if (element % 2 == 0) {
+        return element * 10
+    }
+    return element
+})
+
+console.log(newNums)
+
+// filter -> to filter array -> based on a condn
+
+const filteredNums = nums.filter((element) => element % 2 == 0)
+
+console.log(filteredNums)
+
+// reduce -> returns a single value
+
+const s = nums.reduce((previousValue, element) => {
+    return previousValue * element
+}, 1)
+
+console.log(s)
+
+// let ss = 0
+
+// for (let j = 0; j < nums.length; j++){
+//     ss += nums[j]
+// }
+
+// console.log(ss)
