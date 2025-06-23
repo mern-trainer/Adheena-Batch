@@ -1,0 +1,23 @@
+1. Create a todo list using HTML, CSS, and JavaScript.
+    - The todo list should have a form to add new tasks.
+    - Each task should have a delete button.
+    - The tasks should be displayed in a list below the form.
+    - You can use any CSS framework you like.
+2. Create a calculator using HTML, CSS, and JavaScript.
+    - The calculator should have buttons for the numbers 0-9, the operations +, -, *, /, and =.
+    - The calculator should display the input and the result.
+    - You can use any CSS framework you like.
+3. Create a product listing page using HTML, CSS, and JavaScript.
+    - The page should display a list of products.
+    - Each product should have an image, name, price, and a button to add it to the cart.
+    - You can use CSS or any CSS framework you like.
+    - use api: https://dummyjson.com/products
+4. Create a blog page using HTML, CSS, and JavaScript.
+    - The page should display a list of blog posts.
+    - Each blog post should have a title, body, and views of the content.
+    - Clicking on a blog post should display the full content.
+    - use api: https://dummyjson.com/posts
+
+Hint: use loop, fetch, async/await, try/catch, DOM, etc.
+
+
