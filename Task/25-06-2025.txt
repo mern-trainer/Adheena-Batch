@@ -1,0 +1,11 @@
+1. Build an e-commerce product catalog using the Fake Store API (https://fakestoreapi.com/products):
+
+Requirements:
+- Create a product catalog using only HTML, CSS and JavaScript
+- Fetch product data from the Fake Store API using the Fetch API
+- Display products in a responsive grid/list layout
+- Implement click functionality to show detailed product information
+- Single product details should appear in the same page
+- Use JavaScript memoization to cache and optimize product detail fetches
+- Ensure responsive design works across different screen sizes
+- No frameworks or libraries allowed - pure JavaScript only
