@@ -1,25 +1,5 @@
 // closure, curring, recursion
 
-// closure -> closure is a function having access to the parent scope, even after the parent function has closed.
-
-const counter = () => { // parent
-    let value = 0;
-    const increment = () => { // child
-        value++
-        return value
-    }
-    return increment
-}
-
-const func = counter()
-
-console.log(func());
-console.log(func());
-console.log(func());
-console.log(func());
-console.log(func());
-console.log(func());
-
 // curring -> multiple parameters into single parameter.
 
 // const volume = (l, b, h) => {
@@ -89,3 +69,27 @@ console.log(sum(100));
 console.log(a);
 
 var a;
+
+// closure -> closure is a function having access to the parent scope, even after the parent function has closed.
+
+const counter = () => { // parent
+    let value = 0;
+    const increment = () => { // child
+        value++
+        return value
+    }
+    const decrement = () => {
+        value--
+        return value
+    }
+    return { increment, decrement };
+}
+
+const func = counter()
+
+console.log(func.increment());
+console.log(func.increment());
+console.log(func.increment());
+console.log(func.decrement());
+console.log(func.decrement());
+console.log(func.decrement());

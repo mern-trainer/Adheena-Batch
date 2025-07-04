@@ -1,130 +1,160 @@
-// Set, Map
+// Map, Set, Memoization
+
+// Set -> Collection of unique elements
+// Map -> Collection of key-value pairs
 
 // Set -> SetConstructor
-// Map -> MapConstructor
 
-const obj = {
-    name: "John Doe",
-    age: 20,
-    place: "Kannur",
-    qualification: "BCA"
-}
+const set = new Set();
 
-// set -> Unique collection of elements.
-// map -> Collection of key, value pairs.
+// add
 
+set.add(10)
+set.add(20)
+set.add(30)
 
-const set = new Set()
+// delete
 
-set.add(1) // add values
-set.add(2)
-set.add(3)
-// set.add(3)
-set.add(4)
-set.add(5)
+set.delete(20)
 
-const is_exist = set.has(2)
+// check if exists
 
-console.log(is_exist)
+const exists = set.has(10) // true or false
 
-set.delete(4)
+console.log(exists)
 
-console.log(set);
+// size
 
-const arr = [1, 2, 3, 2, 1, 4, 6, 2, 3, 1, 2, 3, 1, 2, 3];
+const size = set.size
 
-const uniqueSet = new Set(arr)
+console.log(size)
 
-console.log(uniqueSet)
+// convert set to array
 
-const uniqueArr = Array.from(uniqueSet)
+const arr = Array.from(set)
 
-console.log(set.size)
+console.log(arr)
+
+// clear
 
 set.clear()
 
 console.log(set)
 
-console.log(uniqueArr)
 
-// ------------------------------------------------------
-
-// Map -> Collection of key, value pairs.
+// Map -> MapConstructor
 
 const map = new Map();
 
+// set value
+
 map.set("name", "John Doe")
 map.set("age", 20)
-map.set("place", "Kannur")
-map.set("qualification", "BCA")
 
-const age = map.get("age")
-console.log(age)
+// get value
 
-console.log(map.has("name"))
+const user = map.get("name");
+
+console.log(user)
+
+// size
+
+const sizeOfMap = map.size
+
+console.log(sizeOfMap)
+
+// has
+
+const is_present = map.has("name") // true or false
+
+console.log(is_present)
+
+// delete
 
 map.delete("name")
 
-console.log(map.size)
-map.clear()
-console.log(map)
+// clear
 
-// [["key", "value"], ["key", "value"]]
+// map.clear()
 
-// ------------------------------------------------------
+// convert to array
 
-// Memoization -> Caching the results of function calls. -> Optimization Technique.
+const ar = Array.from(map) // [["name", "John Doe"], ["age", 20]]
 
-const cache = new Map()
+console.log(ar)
+
+// Memoization -> Optimization technique -> caching -> store the result of a function for future use.
+
+// async -> 2 - 5 seconds
+
+// 3 times -> 15 seconds
+
+// 1 st -> 5 second -> 2,3 -> 0 seconds
+
+// -> 1,2 => 3
+// -> 1,2 => 3
+
+const store = new Map();
 
 const sumOfNNumbers = (n) => {
-    if (cache.has(n)) {
-        console.log("Returning from cache...")
-        return cache.get(n)
+    if (store.has(n)) {
+        console.log("Getting sum of", n, "numbers from cache");
+        return store.get(n)
     }
-    console.log("Calculating...")
+    console.log("Calculating sum of", n, "numbers");
     let sum = 0
     for (let i = 1; i <= n; i++){
-        sum = sum + i
+        sum += i
     }
-    cache.set(n, sum)
+    store.set(n, sum)
     return sum
 }
 
-console.log(sumOfNNumbers(10))
-console.log(sumOfNNumbers(10))
-console.log(sumOfNNumbers(10))
-console.log(sumOfNNumbers(10))
-console.log(sumOfNNumbers(10000))
-console.log(sumOfNNumbers(10000))
-console.log(sumOfNNumbers(10000))
-console.log(sumOfNNumbers(10000))
+console.log(sumOfNNumbers(100000));
+console.log(sumOfNNumbers(100000));
 
-const store = new Map()
+// application
 
-const fetchDataFromUrl = async (productsId) => {
+// api calling
+
+const cache = new Map();
+
+const getTodo = async (todo_id) => {
     try {
-        if (store.has(productsId)) {
-            console.log("Return from cache...")
-            return store.get(productsId)
+        if (cache.has(todo_id)) {
+            console.log("Fetching todo from cache...");
+            return cache.get(todo_id)
         }
-        console.log("Fetching data from url...")
-        const response = await fetch(`https://dummyjson.com/products/${productsId}`)
+        console.log("Fetching todo...");
+        const response = await fetch(`https://jsonplaceholder.typicode.com/todos/${todo_id}`)
         const res = await response.json()
-        store.set(productsId, res)
+        cache.set(todo_id, res)
         return res
-    } catch (err) {
-        return err
+    } catch (error) {
+        console.log(error);
     }
 }
 
-const apiCall = async () => {
-    let res = await fetchDataFromUrl(1)
-    console.log(res)
-    res = await fetchDataFromUrl(2)
-    console.log(res)
-    console.log("Completed")
+const handleTodoCall = async () => {
+    try {
+        let todo = await getTodo(10)
+        console.log(todo)
+        todo = await getTodo(10)
+        console.log(todo)
+        todo = await getTodo(10)
+        console.log(todo)
+        todo = await getTodo(10)
+        console.log(todo)
+        todo = await getTodo(10)
+        console.log(todo)
+        console.log("Fetching todo completed")
+        console.log(cache);
+    } catch (err) {
+        console.log(err)
+    }
 }
 
-apiCall()
+handleTodoCall()
+
+
 
