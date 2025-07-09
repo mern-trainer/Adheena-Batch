@@ -1,95 +1,84 @@
-// closure, curring, recursion
+// closure, recursion, hoisting
 
-// curring -> multiple parameters into single parameter.
+// closure -> a function that is returned from another function
+//            and is able to access the variables of the outer function.
 
-// const volume = (l, b, h) => {
-//     return l * b * h
-// }
-
-// volume(10, 20, 30);
-
-const volume = (l) => {
-    console.log(l);
-    return (b) => {
-        const area = l * b
-        console.log(area);
-        return (h) => {
-            return l * b * h
-        }
+const outerFunc = () => {
+    let data = 0;
+    const innerFunc = () => {
+        data++
+        return data
     }
+    return innerFunc
 }
 
-// const res = volume(10)
-// const res2 = res(20)
-// const finalRes = res2(30)
-// console.log(finalRes);
+const func = outerFunc()
 
-const res = volume(10)(20)(30)
+// console.log(func())
+// console.log(func())
+// console.log(func())
+// console.log(func())
+// console.log(func())
+// console.log(func())
+// console.log(func())
+// console.log(func())
+// console.log(func())
+// console.log(func())
+// console.log(func())
+// console.log(func())
+// console.log(func())
 
-console.log(res);
-
-// Recursion -> function calling itself.
+// recursion -> a function that calls itself, with in the function body
+//              and it must have a condition to stop calling itself
+//              otherwise it will call itself indefinitely
+//              and it will result in a stack overflow error
 
 let i = 0;
 
-const rec = () => {
-    if (i == 5) {
-        return;
+const counter = () => {
+    if (i == 3) {
+        return "Hello";
     }
+    console.log(i)
     i++
-    console.log(i);
-    
-    rec()
+    return counter()
 }
 
-rec()
+const res = counter()
 
-// Stack -> LIFO / FILO
+console.log(res)
 
-// sum
+// counter() -> return "Hello" -> i = 0
+// counter() -> return "Hello" -> i = 1
+// counter() -> return "Hello" -> i = 2
+// counter() -> return "Hello" -> i = 3
+// counter() -> return "Hello"
+
+// sum of numbers
 
 const sum = (n) => {
-    if (n == 0) return 0;
-    return sum(n - 1) + n;
+    if (n == 0) {
+        return 0;
+    }
+    return n + sum(n - 1);
 }
 
-console.log(sum(100));
+console.log(sum(100))
 
+// sum(4) -> return 4 + sum(3)
+// sum(3) -> return 3 + sum(2)
+// sum(2) -> return 2 + sum(1)
+// sum(1) -> return 1 + sum(0)
+// sum(0) -> return 0
 
-// sum(4) -> return sum(3) + 4 -> 1
-// sum(3) -> return sum(2) + 3 -> 2
-// sum(2) -> return sum(1) + 2 -> 3
-// sum(1) -> return sum(0) + 1 -> 4
-// sum(0) -> return 0  -> 5
+// hoisting -> JS moves all the function declarations to the top of the file
+//             and all the variable declarations are also moved to the top of the file
+//             but not the variable initializations. only for var
 
-// hoisting -> javascript moves all the function, variable declarations to the top of the file.
+// working -> 2 phases -> Memory allocation, Code execution
+//             1. Memory allocation -> JS allocates memory for the variables
+//             2. Code execution -> JS executes the code line by line
 
-// 2 phase -> memory allocation, code execution.
-
-console.log(a);
+console.log(a)
 
 var a;
-
-// closure -> closure is a function having access to the parent scope, even after the parent function has closed.
-
-const counter = () => { // parent
-    let value = 0;
-    const increment = () => { // child
-        value++
-        return value
-    }
-    const decrement = () => {
-        value--
-        return value
-    }
-    return { increment, decrement };
-}
-
-const func = counter()
-
-console.log(func.increment());
-console.log(func.increment());
-console.log(func.increment());
-console.log(func.decrement());
-console.log(func.decrement());
-console.log(func.decrement());
