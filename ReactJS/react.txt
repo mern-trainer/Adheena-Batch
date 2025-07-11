@@ -1,0 +1,42 @@
+Library -> Supporting software.
+Framework -> Structure 
+
+React -> React is a javascript library for creating user interfaces.
+
+SPA -> SINGLE PAGE APPLICATION
+
+Features
+
+DOM -> Programming interface for web documents
+
+1. Component Based -> Similer to function but with additional features.
+2. Virtual DOM -> Copy of virtual DOM.
+3. One way Data Binding or unidirectional data flow
+4. JSX -> javascript xml -> syntax extension to javascript -> html like syntax.
+
+
+NodeJS -> Javascript runtime environment.
+npm -> package manager for javascript.
+vite -> React fast bundler.
+
+React -> Create Elements
+ReactDOM -> Render Elements -> Sync virtual DOM changes to actual DOM. The process is called reconciliation.
+
+installation
+
+npm create vite@latest .
+npm install
+npm run dev
+
+
+
+
+
+
+
+
+
+
+
+
+
