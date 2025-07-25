@@ -9,19 +9,37 @@ import { useState } from "react"
 
 const App = () => {
 
-    const [counter, setCounter] = useState(10);
+    // const [counter, setCounter] = useState(10);
+    const [counters, setCounters] = useState({ one: 0, two: 0 })
+    const [list, setList] = useState([])
 
-    const increment = () => {
-        setCounter((prevCounter) => prevCounter + 1)
-        setCounter((prevCounter) => prevCounter + 1)
-        setCounter((prevCounter) => prevCounter + 1)
-        setCounter((prevCounter) => prevCounter + 1)
-        setCounter((prevCounter) => prevCounter + 1)
+    const incrementOne = () => {
+        setCounters({ ...counters, one: counters.one + 1 });
+    }
+
+    const incrementTwo = () => {
+        setCounters({ ...counters, two: counters.two + 1 });
+    }
+
+    const addValues = () => {
+        const random = Math.random()
+        setList([...list, random])
     }
 
     return <div className="d-flex flex-column gap-2 align-items-center mt-5">
-        <div>{counter}</div>
-        <button className="btn btn-success" onClick={increment}>Increment</button>
+        <div className="d-flex flex-column align-items-center gap-2">
+            <div>{counters.one}</div>
+            <button className="btn btn-success" onClick={incrementOne}>Increment</button>
+        </div>
+        <div className="d-flex flex-column align-items-center gap-2">
+            <div>{counters.two}</div>
+            <button className="btn btn-success" onClick={incrementTwo}>Increment</button>
+        </div>
+
+        <div className="mt-5 d-flex flex-column align-items-center">
+            <button onClick={addValues} className="btn btn-primary">Generate Random Number</button>
+            {list.join(" , ")}
+        </div>
     </div>
 }
 
