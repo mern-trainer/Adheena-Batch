@@ -12,7 +12,11 @@ const App = () => {
     const [counter, setCounter] = useState(10);
 
     const increment = () => {
-        setCounter(counter + 1)
+        setCounter((prevCounter) => prevCounter + 1)
+        setCounter((prevCounter) => prevCounter + 1)
+        setCounter((prevCounter) => prevCounter + 1)
+        setCounter((prevCounter) => prevCounter + 1)
+        setCounter((prevCounter) => prevCounter + 1)
     }
 
     return <div className="d-flex flex-column gap-2 align-items-center mt-5">
