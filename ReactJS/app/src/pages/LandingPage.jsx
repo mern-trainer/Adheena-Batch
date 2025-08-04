@@ -1,8 +1,10 @@
+import { Link } from "react-router"
 import "./LandingPage.css"
 
 const LandingPage = () => {
     return <div>
         <h1 className="demo">Landing Page</h1>
+        <Link to="/state">State</Link>
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum, quis nulla. Maxime tempora harum, alias maiores quia et officiis laboriosam soluta minima quae eaque perspiciatis asperiores, ad nobis vel autem.
         Explicabo necessitatibus odit aperiam vitae. Nam totam rem nostrum, impedit vel laboriosam porro libero quia? Nihil, adipisci ipsa voluptatem itaque facere consectetur reprehenderit velit fugit quas hic! Assumenda, quas voluptatem.
         Est eum harum labore voluptatibus excepturi quod, pariatur beatae aliquam itaque dicta. Exercitationem tempora itaque, fugit magni dignissimos eveniet obcaecati, eos, pariatur nostrum illo autem dolore aut atque. Qui, quas!
