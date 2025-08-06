@@ -3,6 +3,7 @@ import LandingPage from "./pages/LandingPage"
 import State from "./pages/State"
 import Mapping from "./pages/Mapping"
 import Users from "./pages/Users"
+import TodoListPage from "./pages/TodoList"
 
 const App = () => {
     return <BrowserRouter>
@@ -11,6 +12,7 @@ const App = () => {
             <Route path="/state" Component={State} />
             <Route path="/map" Component={Mapping} />
             <Route path="/users" Component={Users} />
+            <Route path="/todo" Component={TodoListPage} />
         </Routes>
     </BrowserRouter>
 }
